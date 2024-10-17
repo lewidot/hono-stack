@@ -1,9 +1,7 @@
-import { Hono } from 'hono'
+import app from './app'
 
-const app = new Hono()
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
+Bun.serve({
+  fetch: app.fetch,
 })
 
-export default app
+console.log('🔥 server running on http://localhost:3000')
